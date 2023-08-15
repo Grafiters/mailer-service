@@ -105,3 +105,19 @@ $ openssl rsa -in private_key.pem -pubout -outform DER | openssl base64 -A
 ```
 
 after that you can set that `private_key` on your project to protect the message from your project for executing on this `mailer-service`, and for `mailer-service` you can must to using that `public_key` to decrypted the message from your `project` after consuming channel has you declared in file `.env`
+
+## ======> RUN PROJECT <========
+
+project mailer-service you can run using the following command
+
+download all depenencies project using the following command
+```bash
+$ go mod download
+```
+
+completely setup configuration for your project
+
+after all is ready, run the following command
+```bash
+$ go run main.go
+```
