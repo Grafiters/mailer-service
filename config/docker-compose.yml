@@ -1,0 +1,16 @@
+version: '3.6'
+  rabbitmq:
+      image: rabbitmq:3.7.6-management
+      restart: always
+      ports:
+        - "5672:5672"
+        - "15672:15672"
+      volumes:
+        - rabbitmq_data:/var/lib/rabbitmq
+      logging:
+        driver: "json-file"
+        options:
+            max-size: "50m"
+
+volumes:
+  rabbitmq_data:

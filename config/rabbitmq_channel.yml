@@ -1,0 +1,12 @@
+exchanges:
+  - name: mailer_exchange
+    type: direct
+    durable: false
+    auto_delete: false
+queues:
+  - name: mailer_queue
+    durable: true
+    auto_delete: false
+    bindings:
+      - exchange: mailer_exchange
+        routing_key: mailer.send_email
