@@ -5,6 +5,6 @@ type VerifToken struct {
 	Email           			string  	`json:"email"`
 	GoogleID					string 		`json:"google_id"`
 	Role						string		`json:"role"`
-	ActivationCode				int 		`json:"email_verification_token"`
-	ResetPasswordToken			int			`json:"reset_password_token"`
+	ActivationCode				string 		`json:"email_verification_token"`
+	ResetPasswordToken			string		`json:"reset_password_token"`
 }

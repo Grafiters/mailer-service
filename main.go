@@ -59,6 +59,8 @@ func main() {
 				log.Println(err)
 			}
 
+            log.Println("======= Record =======")
+            log.Println(data)
 			mailers.SendMail(recordInterfaces, data)
 		}
     }
