@@ -45,6 +45,15 @@ func ClaimAllRecordData(msg string, tag string) (interface{}, error) {
 			}
 
 			return interfaceData, nil
+		case "notification":
+			var interfaceData interfaces.Notification
+			record := token.DecodeToken(msg, &interfaceData)
+			if record != nil {
+				log.Println(record)
+				return nil, record
+			}
+
+			return interfaceData, nil
 		default:
 			log.Println("Tag not recognized")
 			
