@@ -106,6 +106,31 @@ $ openssl rsa -in private_key.pem -pubout -outform DER | openssl base64 -A
 
 after that you can set that `private_key` on your project to protect the message from your project for executing on this `mailer-service`, and for `mailer-service` you can must to using that `public_key` to decrypted the message from your `project` after consuming channel has you declared in file `.env`
 
+setup notification is using firebase with get server key
+the base config of notification is on folder `notificaiton/notification.go`
+
+format payload on jwt encode is
+```json
+{
+  "record": {
+    "users": {
+      "email": "<email_user>",
+      "device_token": [
+        "<string>"
+      ]
+    },
+    "title": "<string>",
+    "message": "<string>"
+  },
+  "sub": "<string>",
+  "aud": "'<string>'",
+  "iss": "<string>",
+  "iat": "timestamp",
+  "exp": "timestamp",
+  "jti": "generateString"
+}
+```
+
 ## ======> RUN PROJECT <========
 
 project mailer-service you can run using the following command
@@ -118,6 +143,12 @@ $ go mod download
 completely setup configuration for your project
 
 after all is ready, run the following command
+
+#### Running mailer is on
 ```bash
-$ go run main.go
+$ go run mailer.go
+```
+#### Running notification is on
+```bash
+$ go run push_notif.go
 ```

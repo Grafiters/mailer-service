@@ -20,7 +20,7 @@ func main() {
 		log.Println("Error loading .env file:", err)
 	}
 
-    queueName := os.Getenv("RABBITMQ_QUEUE_NAME")
+    queueName := "mailer_queue"
     conn, err := rabbitmq.ConnectToRabbitMQ()
     if err != nil {
         log.Fatal(err)
