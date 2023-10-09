@@ -26,7 +26,7 @@ func SendNotification(record interfaces.Notification, msg interface{}) {
 			Title: record.Title,
 			Body:  record.Message,
 		},
-		RegistrationIds: record.User.DeviceToken,
+		RegistrationIds: record.DeviceToken,
 	}
 	
 

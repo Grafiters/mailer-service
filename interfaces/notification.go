@@ -1,12 +1,11 @@
 package interfaces
 
-type Users struct {
-	Email			string		`json:"email"`
-	DeviceToken		[]string	`json:"device_token"`
-}
-
 type Notification struct {
-	User			Users	`json:"users"`
-	Title           string  `json:"title"`
-	Message			string	`json:"message"`
+	DeviceToken		[]string	`json:"device_token"`
+	Title           string  	`json:"title"`
+	Message			string		`json:"message"`
+	Channel			string		`json:"channel,omitempty"`
+	Time			string		`json:"time,omitempty"`
+	Event			string		`json:"event,omitempty"`
+	ChannelName		string		`json:"channel_name,omitempty"`
 }

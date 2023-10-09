@@ -49,7 +49,6 @@ func DecodeToken(tokenString string, target interface{}) error {
 
 	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
 		recordBytes := claims["record"].(map[string]interface{}) // Assuming "record" is a JSON object
-		log.Println("Users", recordBytes["users"].(map[string]interface{}))
 		recordJSON, err := json.Marshal(recordBytes)
 		if err != nil {
 			return err

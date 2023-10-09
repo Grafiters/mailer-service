@@ -1,12 +1,12 @@
 package main
 
+
 import (
-    // "os"
     "log"
 
+    "mailer/token"
 	"mailer/rabbitmq"
     "mailer/notification"
-    "mailer/token"
     "mailer/interfaces"
 
     "github.com/joho/godotenv"
@@ -49,8 +49,11 @@ func main() {
 
 		record := token.DecodeToken(string(msg.Body), &recordInterfaces)
 
-        log.Println("======= Record =======")
-        log.Println(record)
-        notification.SendNotification(recordInterfaces, record)
+        if record != nil {
+			log.Println(record)
+		}else{
+			log.Println("Data => ",recordInterfaces)
+            notification.SendNotification(recordInterfaces, record)
+		}
     }
 }
